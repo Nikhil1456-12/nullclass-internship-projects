@@ -1,0 +1,72 @@
+# Core dependencies
+PyYAML==6.0.1
+python-dotenv==1.0.0
+
+# Scheduler
+APScheduler==3.10.4
+
+# HTTP requests and parsing
+requests==2.31.0
+beautifulsoup4==4.12.2
+feedparser==6.0.10
+lxml==4.9.3
+
+# Vector database and embeddings
+faiss-cpu==1.12.0
+sentence-transformers==5.1.1
+openai==1.3.7
+numpy==1.26.4
+
+# Async and rate limiting
+aiohttp==3.9.1
+ratelimit==2.2.1
+backoff==2.2.1
+
+# Logging and monitoring
+structlog==23.2.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+
+# Development
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Internship Projects Dependencies
+
+# Multi-modal chatbot (Google Palm/Gemini AI)
+google-generativeai==0.8.3
+Pillow==10.1.0
+
+# Streamlit UI for all chatbots
+streamlit==1.28.1
+
+# Sentiment Analysis
+nltk==3.8.1
+textblob==0.17.1
+transformers==4.35.2
+torch==2.1.1
+
+# Multi-language support
+googletrans==4.0.0rc1
+deep-translator==1.11.4
+langdetect==1.0.9
+
+# Medical Q&A and arXiv processing
+pandas==2.1.4
+datasets==2.15.0
+kaggle==1.6.0
+
+# Additional NLP and ML libraries
+spacy==3.7.2
+scikit-learn==1.3.2
+plotly==5.17.0
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Web scraping and data processing
+selenium==4.15.2
+tqdm==4.66.1

@@ -1,0 +1,156 @@
+# Knowledge Base Update System Configuration
+
+# Scheduler settings
+scheduler:
+  update_interval_hours: 24  # How often to run updates
+  timezone: "UTC"
+  max_concurrent_jobs: 3
+
+# Data sources configuration
+data_sources:
+  rss_feeds:
+    - name: "TechCrunch"
+      url: "https://techcrunch.com/feed/"
+      enabled: true
+      update_frequency_hours: 6
+      max_articles: 50
+
+    - name: "Hacker News"
+      url: "https://hnrss.org/frontpage"
+      enabled: true
+      update_frequency_hours: 2
+      max_articles: 100
+
+    - name: "ArXiv AI Papers"
+      url: "http://export.arxiv.org/rss/cs.AI"
+      enabled: true
+      update_frequency_hours: 12
+      max_articles: 25
+
+    - name: "MIT Technology Review"
+      url: "https://www.technologyreview.com/topnews.rss"
+      enabled: true
+      update_frequency_hours: 12
+      max_articles: 20
+
+    - name: "Wired Science"
+      url: "https://www.wired.com/feed/rss"
+      enabled: true
+      update_frequency_hours: 8
+      max_articles: 30
+
+  apis:
+    - name: "NewsAPI"
+      base_url: "https://newsapi.org/v2"
+      api_key_env: "NEWSAPI_KEY"
+      endpoints:
+        - path: "/top-headlines"
+          params:
+            category: "technology"
+            language: "en"
+            pageSize: 50
+      enabled: false  # Disabled until API key is provided
+      rate_limit_per_minute: 1000
+
+    - name: "Wikipedia Recent Changes"
+      base_url: "https://en.wikipedia.org/api/rest_v1"
+      endpoints:
+        - path: "/page/recent-changes"
+          params:
+            limit: 50
+      enabled: false  # Disabled - incorrect endpoint
+      rate_limit_per_minute: 500
+
+    - name: "JSONPlaceholder Demo"
+      base_url: "https://jsonplaceholder.typicode.com"
+      endpoints:
+        - path: "/posts"
+          params:
+            _limit: 10
+      enabled: true  # Demo API that works without keys
+      rate_limit_per_minute: 60
+
+# Vector database settings
+vector_db:
+  provider: "faiss"  # Options: chromadb, faiss
+  collection_name: "knowledge_base"
+  persist_directory: "./data/faiss"
+
+  # Embedding model settings
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  embedding_batch_size: 32
+  embedding_max_length: 512
+
+  # Alternative OpenAI embeddings
+  openai_embeddings:
+    model: "text-embedding-ada-002"
+    api_key_env: "OPENAI_API_KEY"
+    batch_size: 100
+
+# Query enhancement settings
+query_enhancement:
+  max_context_results: 5
+  similarity_threshold: 0.5
+  max_response_time_ms: 500
+  include_metadata: true
+
+# Rate limiting and retry settings
+rate_limiting:
+  default_requests_per_minute: 60
+  max_retries: 3
+  retry_backoff_factor: 0.3
+  retry_max_delay: 60
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_path: "./logs/knowledge_updater.log"
+  max_file_size_mb: 100
+  backup_count: 5
+
+# Data quality settings
+data_quality:
+  min_content_length: 50
+  max_content_length: 50000
+  min_word_count: 20
+  max_word_count: 10000
+  required_fields: ["title", "content"]
+  content_filters:
+    - "spam"
+    - "advertisement"
+    - "clickbait"
+
+# Privacy and compliance
+privacy:
+  gdpr_compliant: true
+  data_retention_days: 365
+  anonymize_personal_data: true
+  exclude_sources: ["social_media", "personal_blogs"]
+
+# Performance settings
+performance:
+  batch_size: 100
+  max_workers: 4
+  memory_limit_mb: 2048
+  timeout_seconds: 30
+
+# Domain Expert Chatbot settings
+domain_expert:
+  confidence_threshold: 0.7
+  max_results: 5
+  dataset_path: "data/arxiv_cs_dataset.json"
+  subset_size: 10000
+
+# Sentiment Analysis settings
+sentiment_analysis:
+  threshold: 0.1
+  emotion_threshold: 0.3
+  lexicon_path: "data/sentiment_lexicon"
+
+# Medical QA settings
+medical_qa:
+  confidence_threshold: 0.7
+  max_results: 5
+  dataset_path: "data/medquad_dataset.json"
+  enable_medical_disclaimer: true

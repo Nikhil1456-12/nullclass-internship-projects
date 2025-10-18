@@ -1,0 +1,43 @@
+[
+  {
+    "id": "cs-ai-001",
+    "title": "Attention Is All You Need",
+    "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks...",
+    "categories": [
+      "cs.CL",
+      "cs.LG"
+    ],
+    "authors": [
+      "Vaswani et al."
+    ],
+    "published": "2017-06-12",
+    "updated": "2017-06-12"
+  },
+  {
+    "id": "cs-cv-001",
+    "title": "ImageNet Classification with Deep Convolutional Neural Networks",
+    "abstract": "We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images...",
+    "categories": [
+      "cs.CV"
+    ],
+    "authors": [
+      "Krizhevsky et al."
+    ],
+    "published": "2012-12-10",
+    "updated": "2012-12-10"
+  },
+  {
+    "id": "cs-lg-001",
+    "title": "Deep Residual Learning for Image Recognition",
+    "abstract": "We present a residual learning framework to ease the training of networks that are substantially deeper...",
+    "categories": [
+      "cs.CV",
+      "cs.LG"
+    ],
+    "authors": [
+      "He et al."
+    ],
+    "published": "2015-12-10",
+    "updated": "2015-12-10"
+  }
+]

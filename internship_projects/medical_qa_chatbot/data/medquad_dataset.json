@@ -1,0 +1,26 @@
+[
+  {
+    "question": "What are the common symptoms of diabetes?",
+    "answer": "Common symptoms of diabetes include frequent urination, excessive thirst, extreme hunger, unexplained weight loss, fatigue, irritability, blurred vision, slow-healing sores, and frequent infections.",
+    "focus": "diabetes",
+    "type": "symptoms",
+    "source": "Medical Knowledge Base",
+    "id": "sample_001"
+  },
+  {
+    "question": "How can I manage high blood pressure?",
+    "answer": "Managing high blood pressure typically involves lifestyle changes such as eating a healthy diet low in sodium, regular exercise, maintaining a healthy weight, limiting alcohol consumption, and managing stress. Medications may also be prescribed by your healthcare provider.",
+    "focus": "hypertension",
+    "type": "management",
+    "source": "Medical Knowledge Base",
+    "id": "sample_002"
+  },
+  {
+    "question": "What are the side effects of aspirin?",
+    "answer": "Common side effects of aspirin include stomach pain, heartburn, nausea, vomiting, and stomach ulcers. More serious side effects can include allergic reactions, bleeding problems, and ringing in the ears. Always consult your doctor before starting aspirin therapy.",
+    "focus": "medication",
+    "type": "side_effects",
+    "source": "Medical Knowledge Base",
+    "id": "sample_003"
+  }
+]
