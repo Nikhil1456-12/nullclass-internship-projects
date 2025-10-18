@@ -1,290 +1,233 @@
-# Knowledge Base Update System
+# NullClass Internship Projects
 
-A robust, scalable system for dynamically expanding chatbot knowledge bases through automated, periodic updates to a vector database. This system ingests data from multiple sources, processes it, and makes it available for intelligent query enhancement.
+A comprehensive collection of AI-powered chatbot applications and supporting infrastructure built during internship projects. This repository showcases various natural language processing implementations including multilingual support, domain expertise, medical Q&A, sentiment analysis, and multimodal capabilities.
 
-## 🚀 Features
+## 🚀 Live Applications
 
-- **Automated Data Ingestion**: Fetches content from RSS feeds, APIs, and other sources
-- **Intelligent Processing**: Cleans, validates, and deduplicates content
-- **Vector Embeddings**: Supports multiple embedding backends (OpenAI, Sentence-BERT)
-- **Vector Database**: ChromaDB integration with similarity search
-- **Query Enhancement**: Real-time context retrieval for chatbot responses
-- **Scheduled Updates**: Automated periodic knowledge base updates
-- **Rate Limiting**: Built-in rate limiting for API calls
-- **Comprehensive Logging**: Structured logging with performance monitoring
-- **Error Handling**: Robust error handling and recovery mechanisms
-- **Scalable Architecture**: Batch processing and concurrent operations
+All projects are deployed and accessible online:
 
-## 📋 Requirements
+- **🌐 Multilingual Chatbot** - [View on Streamlit Cloud](https://nullclass-multilingual-chatbot.streamlit.app/)
+- **🏥 Medical Q&A Chatbot** - [View on Streamlit Cloud](https://nullclass-medical-qa.streamlit.app/)
+- **📊 Sentiment Analysis** - [View on Streamlit Cloud](https://nullclass-sentiment-analysis.streamlit.app/)
+- **🎯 Domain Expert Chatbot** - [View on Streamlit Cloud](https://nullclass-domain-expert.streamlit.app/)
+- **🎨 Multimodal Chatbot** - [View on Streamlit Cloud](https://nullclass-multimodal.streamlit.app/)
 
-- Python 3.8+
-- See `requirements.txt` for all dependencies
+## 📁 Project Structure
 
-## 🛠️ Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd knowledge-base-updater
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure the system**
-   ```bash
-   cp config.yaml.example config.yaml
-   # Edit config.yaml with your settings
-   ```
-
-4. **Set up environment variables**
-   ```bash
-   export OPENAI_API_KEY="your-openai-api-key"
-   export NEWSAPI_KEY="your-newsapi-key"
-   # Add other API keys as needed
-   ```
-
-## ⚙️ Configuration
-
-The system uses a comprehensive YAML configuration file (`config.yaml`) with the following sections:
-
-### Scheduler Configuration
-```yaml
-scheduler:
-  update_interval_hours: 24  # How often to run updates
-  timezone: "UTC"
-  max_concurrent_jobs: 3
+```
+nullclass-internship-projects/
+├── internship_projects/           # Main project implementations
+│   ├── multilingual_support/      # Multi-language chatbot with translation
+│   ├── medical_qa_chatbot/       # Medical question-answering system
+│   ├── sentiment_analysis/        # Sentiment and emotion analysis
+│   ├── domain_expert_chatbot/    # Domain-specific expert chatbot
+│   └── multimodal_chatbot/        # Multi-modal input processing
+├── knowledge_updater/            # Knowledge base management system
+│   ├── core/                     # Core configuration and utilities
+│   ├── data_sources/             # RSS and API data ingestion
+│   ├── vector_db/                # Vector database management
+│   ├── embeddings/               # Text embedding generation
+│   └── query/                    # Query processing and enhancement
+├── data/                         # Datasets and vector stores
+├── tests/                        # Unit and integration tests
+├── logs/                         # Application logs
+└── requirements.txt              # Python dependencies
 ```
 
-### Data Sources
-```yaml
-data_sources:
-  rss_feeds:
-    - name: "TechCrunch"
-      url: "https://techcrunch.com/feed/"
-      enabled: true
-      max_articles: 50
+## 🌟 Featured Projects
 
-  apis:
-    - name: "NewsAPI"
-      base_url: "https://newsapi.org/v2"
-      api_key_env: "NEWSAPI_KEY"
-      endpoints:
-        - path: "/top-headlines"
-          params:
-            category: "technology"
-            language: "en"
-```
+### 🌐 Multilingual Support Chatbot
+**Location:** `internship_projects/multilingual_support/`
 
-### Vector Database
-```yaml
-vector_db:
-  provider: "chromadb"
-  collection_name: "knowledge_base"
-  persist_directory: "./data/chroma"
-  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
-```
+An advanced chatbot supporting 12+ languages with:
+- **Automatic Language Detection** - Identifies user language with high confidence
+- **Real-time Translation** - Seamless translation between supported languages
+- **Cultural Adaptation** - Contextually appropriate responses
+- **Multi-language Conversation History** - Maintains context across languages
 
-## 🎯 Usage
+**Supported Languages:** English, Spanish, French, German, Italian, Portuguese, Russian, Japanese, Korean, Chinese, Arabic, Hindi
 
-### Command Line Interface
+### 🏥 Medical Q&A Chatbot
+**Location:** `internship_projects/medical_qa_chatbot/`
 
-#### Update Knowledge Base
-```bash
-python main.py update
-```
+A specialized medical question-answering system featuring:
+- **Medical Knowledge Base** - Curated medical dataset integration
+- **Evidence-based Responses** - Citations and confidence scoring
+- **Safety Features** - Medical disclaimers and ethical guidelines
+- **Multi-format Responses** - Text, structured data, and explanations
 
-#### Query Knowledge Base
-```bash
-python main.py query "What is artificial intelligence?"
-```
+### 📊 Sentiment Analysis Tool
+**Location:** `internship_projects/sentiment_analysis/`
 
-#### Test System
-```bash
-python main.py test
-```
+Comprehensive sentiment analysis with:
+- **Multi-dimensional Analysis** - Sentiment, emotion, and intent detection
+- **Real-time Processing** - Live text analysis capabilities
+- **Visualization Dashboard** - Interactive charts and metrics
+- **Batch Processing** - Handle multiple texts simultaneously
 
-#### Start Server (for scheduled updates)
-```bash
-python main.py serve --host localhost --port 8000
-```
+### 🎯 Domain Expert Chatbot
+**Location:** `internship_projects/domain_expert_chatbot/`
 
-### Programmatic Usage
+Domain-specific expertise system with:
+- **ArXiv Integration** - Latest research papers and findings
+- **Contextual Understanding** - Domain-specific terminology handling
+- **Confidence Scoring** - Response reliability indicators
+- **Source Attribution** - Citation of expert sources
 
-```python
-from knowledge_updater.data_sources.manager import DataSourceManager
-from knowledge_updater.vector_db.manager import VectorDBManager
-from knowledge_updater.query.enhancer import QueryEnhancer
+### 🎨 Multimodal Chatbot
+**Location:** `internship_projects/multimodal_chatbot/`
 
-# Fetch and process new data
-data_manager = DataSourceManager()
-articles = data_manager.fetch_and_process()
+Multi-modal input processing featuring:
+- **Text Analysis** - Advanced NLP capabilities
+- **Image Processing** - Visual content understanding (planned)
+- **Audio Processing** - Speech and sound analysis (planned)
+- **Unified Interface** - Single chatbot for multiple input types
 
-# Update vector database
-vector_manager = VectorDBManager()
-update_stats = vector_manager.update_knowledge_base(articles)
+## 🔧 Technical Infrastructure
 
-# Enhance queries
-enhancer = QueryEnhancer()
-enhanced = enhancer.enhance_query("What is machine learning?")
-```
+### Knowledge Updater System
+**Location:** `knowledge_updater/`
 
-## 🏗️ Architecture
+A robust knowledge management system providing:
+- **Automated Data Ingestion** - RSS feeds and API integration
+- **Vector Database Management** - FAISS and ChromaDB support
+- **Embedding Generation** - Multiple embedding model support
+- **Query Enhancement** - Advanced search and retrieval
+- **Rate Limiting** - API usage management and optimization
 
 ### Core Components
+- **Configuration Management** - YAML-based configuration with validation
+- **Logging System** - Structured logging with multiple levels
+- **Scheduler** - Automated update scheduling and management
+- **Data Quality** - Content filtering and validation
 
-1. **Scheduler** (`knowledge_updater/core/scheduler.py`)
-   - Manages periodic updates using APScheduler
-   - Supports cron and interval triggers
-   - Thread-safe job management
+## 🛠️ Installation & Setup
 
-2. **Data Sources** (`knowledge_updater/data_sources/`)
-   - RSS feed handler with robust parsing
-   - API client with rate limiting
-   - Content validation and cleaning
+### Prerequisites
+- Python 3.8+
+- Git
+- Virtual environment (recommended)
 
-3. **Embedding Generator** (`knowledge_updater/embeddings/`)
-   - OpenAI embeddings backend
-   - Sentence-BERT backend
-   - Batch processing support
+### Quick Start
+```bash
+# Clone the repository
+git clone https://github.com/Nikhil1456-12/nullclass-internship-projects.git
+cd nullclass-internship-projects
 
-4. **Vector Database** (`knowledge_updater/vector_db/`)
-   - ChromaDB client with persistence
-   - Similarity search capabilities
-   - Metadata management
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-5. **Query Enhancer** (`knowledge_updater/query/`)
-   - Real-time context retrieval
-   - Query feature extraction
-   - Response enhancement
+# Install dependencies
+pip install -r requirements.txt
 
-### Data Flow
-
+# Run any project (example: multilingual chatbot)
+cd internship_projects/multilingual_support
+streamlit run multilingual_chatbot.py
 ```
-Sources (RSS/API) → Data Manager → Processing → Embedding → Vector DB
-                                                           ↓
-User Query → Query Enhancer → Context Retrieval → Enhanced Response
-```
+
+### Configuration
+Each project includes its own `config.yaml` file. Key configuration areas:
+- **Data Sources** - RSS feeds and API endpoints
+- **Vector Database** - Storage and retrieval settings
+- **Embedding Models** - Text encoding configurations
+- **Rate Limiting** - API usage controls
+- **Logging** - Debug and monitoring settings
+
+## 📊 Datasets
+
+The project includes several curated datasets:
+- **ArXiv CS Dataset** - Computer science research papers
+- **MedQuad Dataset** - Medical question-answer pairs
+- **Custom Knowledge Base** - Domain-specific content
 
 ## 🧪 Testing
 
 Run the test suite:
 ```bash
-python -m pytest tests/ -v
+# Run all tests
+python -m pytest tests/
+
+# Run specific test categories
+python -m pytest tests/test_config.py
+python -m pytest tests/test_data_processor.py
+
+# Integration tests
+python test_integration.py
 ```
 
-Run specific test modules:
+## 🚀 Deployment
+
+### Streamlit Cloud (Recommended)
+All projects are configured for easy deployment on Streamlit Cloud:
+1. Connect your GitHub repository to Streamlit Cloud
+2. Select the desired project directory as the app root
+3. Configure environment variables (API keys, etc.)
+4. Deploy with automatic updates on git push
+
+### Local Development
+Each project can be run independently:
 ```bash
-python -m pytest tests/test_config.py -v
-python -m pytest tests/test_data_processor.py -v
+# Terminal 1 - Multilingual Chatbot
+cd internship_projects/multilingual_support
+streamlit run multilingual_chatbot.py --server.port=8501
+
+# Terminal 2 - Medical Q&A
+cd internship_projects/medical_qa_chatbot
+streamlit run medical_qa_chatbot.py --server.port=8502
+
+# Additional projects on ports 8503-8505
 ```
 
-## 📊 Monitoring
+## 🔑 Environment Variables
 
-### Logging
-The system provides structured logging with configurable levels:
-- `DEBUG`: Detailed operation information
-- `INFO`: General operation status
-- `WARNING`: Non-critical issues
-- `ERROR`: Critical errors
+Configure these environment variables for full functionality:
+```bash
+# OpenAI API (for embeddings)
+OPENAI_API_KEY=your_openai_key
 
-### Performance Metrics
-- Update frequency and success rates
-- Query response times
-- Embedding generation performance
-- Database operation statistics
+# News API (for news data)
+NEWSAPI_KEY=your_newsapi_key
 
-## 🔧 Advanced Configuration
-
-### Custom Embedding Models
-```yaml
-vector_db:
-  openai_embeddings:
-    model: "text-embedding-ada-002"
-    batch_size: 100
-    api_key_env: "OPENAI_API_KEY"
+# Optional: Custom embedding models
+EMBEDDING_MODEL=all-MiniLM-L6-v2
 ```
-
-### Rate Limiting
-```yaml
-rate_limiting:
-  default_requests_per_minute: 60
-  max_retries: 3
-  retry_backoff_factor: 0.3
-```
-
-### Data Quality Filters
-```yaml
-data_quality:
-  min_content_length: 100
-  max_content_length: 10000
-  content_filters:
-    - "spam"
-    - "advertisement"
-```
-
-## 🚨 Error Handling
-
-The system includes comprehensive error handling:
-- **Network failures**: Automatic retry with exponential backoff
-- **API rate limits**: Intelligent rate limiting and queuing
-- **Malformed data**: Robust parsing with fallback mechanisms
-- **Database errors**: Transaction rollback and recovery
-
-## 🔒 Privacy and Compliance
-
-- **GDPR Compliance**: Configurable data retention policies
-- **Data Anonymization**: Personal data filtering options
-- **Source Exclusions**: Configurable source filtering
-- **Audit Logging**: Complete operation logs for compliance
-
-## 📈 Scalability
-
-### Batch Processing
-- Configurable batch sizes for large datasets
-- Concurrent processing support
-- Memory-efficient streaming
-
-### Performance Optimization
-- Connection pooling for external APIs
-- Caching for frequently accessed data
-- Async operations where applicable
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+We welcome contributions! Please follow these guidelines:
 
-## 📄 License
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+### Development Guidelines
+- Follow PEP 8 style guidelines
+- Add tests for new features
+- Update documentation for API changes
+- Ensure all tests pass before submitting PR
 
-## 🆘 Support
+## 📝 License
 
-For support and questions:
-- Create an issue in the repository
-- Check the troubleshooting guide
-- Review the configuration documentation
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
-## 🔄 Version History
+## 🙏 Acknowledgments
 
-- **v1.0.0**: Initial release with core functionality
-  - RSS and API data ingestion
-  - ChromaDB vector storage
-  - Query enhancement
-  - Scheduled updates
-  - Comprehensive testing
+- **Streamlit** - For the amazing web framework
+- **Hugging Face** - For transformer models and datasets
+- **FAISS** - For efficient vector similarity search
+- **LangDetect** - For language detection capabilities
+- **Google Translator** - For translation services
 
-## 🗺️ Roadmap
+## 📞 Support
 
-- [ ] Web dashboard for monitoring
-- [ ] Additional vector database backends (Pinecone, Weaviate)
-- [ ] Advanced NLP preprocessing
-- [ ] Multi-language support
-- [ ] Real-time streaming updates
-- [ ] Advanced analytics and insights
+For questions, issues, or contributions, please:
+- Open an issue on GitHub
+- Contact the development team
+- Check existing documentation
+
+---
+
+**Built with ❤️ during internship at NullClass**
