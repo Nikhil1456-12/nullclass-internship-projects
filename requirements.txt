@@ -47,11 +47,10 @@ streamlit==1.28.1
 # Sentiment Analysis
 nltk==3.8.1
 textblob==0.17.1
-transformers==4.35.2
-torch==2.1.1
+transformers==4.41.0
+torch>=2.2.0
 
 # Multi-language support
-googletrans==4.0.0rc1
 deep-translator==1.11.4
 langdetect==1.0.9
 
