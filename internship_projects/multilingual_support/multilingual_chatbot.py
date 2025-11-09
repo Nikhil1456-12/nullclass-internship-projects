@@ -15,7 +15,6 @@ from datetime import datetime, timezone
 import streamlit as st
 
 # Translation libraries
-from googletrans import Translator
 from deep_translator import GoogleTranslator
 from langdetect import detect
 
@@ -128,7 +127,6 @@ class TranslationManager:
     """Manage translations between multiple languages"""
 
     def __init__(self):
-        self.translator = Translator()
         self.google_translator = GoogleTranslator()
 
         # Supported language pairs

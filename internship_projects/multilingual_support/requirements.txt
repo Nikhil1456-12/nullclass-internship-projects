@@ -1,0 +1,10 @@
+streamlit==1.28.1
+nltk==3.8.1
+deep-translator==1.11.4
+langdetect==1.0.9
+sentence-transformers==5.1.1
+faiss-cpu==1.12.0
+PyYAML==6.0.1
+python-dotenv==1.0.0
+requests==2.31.0
+numpy==1.26.4
