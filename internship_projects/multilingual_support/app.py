@@ -9,7 +9,7 @@ sys.path.insert(0, project_root)
 sys.path.insert(0, parent_dir)
 sys.path.insert(0, current_dir)
 
-from multilingual_chatbot import create_multilingual_ui
+from multilingual_chatbot import create_multilingual_chat_ui
 
 if __name__ == "__main__":
-    create_multilingual_ui()
+    create_multilingual_chat_ui()
